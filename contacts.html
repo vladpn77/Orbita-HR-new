@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Контакты — Кадровое агентство «Орбита»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <circle cx="15" cy="15" r="13" stroke="#4F7965" stroke-width="2.5" />
+                    <circle cx="15" cy="15" r="4" fill="#4F7965" />
+                </svg>
+                <span>Орбита</span>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Главная</a>
+                <a href="vacancies.html">Вакансии</a>
+                <a href="employers.html">Работодателям</a>
+                <a href="contacts.html" class="is-current">Контакты</a>
+            </nav>
+            <a href="contacts.html" class="btn btn-primary">Оставить заявку</a>
+        </div>
+    </header>
+
+    <section class="contacts container">
+        <h2>Связаться с нами</h2>
+        <div class="contacts-inner">
+            <form class="contact-form" onsubmit="return false;">
+                <label for="name">
+                    Имя
+                    <input type="text" id="name" placeholder="Как к вам обращаться">
+                </label>
+                <label for="contact">
+                    Телефон или email
+                    <input type="text" id="contact" placeholder="Для связи с вами">
+                </label>
+                <label for="message">
+                    Сообщение
+                    <textarea id="message" rows="3" placeholder="Кратко опишите задачу"></textarea>
+                </label>
+                <button type="submit" class="btn btn-primary" style="width: fit-content;">Отправить</button>
+            </form>
+            <div class="contact-info">
+                <div class="card">
+                    <h3>Контакты</h3>
+                    <p>
+                        Телефон: +7 (495) 000-00-00<br>
+                        Email: info@orbita-hr.example<br>
+                        Адрес: г. Москва, ул. Примерная, 10<br>
+                        Режим работы: пн–пт, 9:00–19:00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span>© 2026 Кадровое агентство «Орбита»</span>
+        <nav>
+            <a href="vacancies.html">Вакансии</a>
+            <a href="employers.html">Работодателям</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </footer>
+
+</body>
+</html>

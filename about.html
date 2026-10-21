@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Кадровое агентство «Орбита»: подбор персонала для бизнеса и поиск работы для кандидатов.">
+<title>О компании — Кадровое агентство «Орбита»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Manrope:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#4F7965" stroke-width="2.5"/>
+        <circle cx="15" cy="15" r="4" fill="#4F7965"/>
+      </svg>
+      <span>Орбита</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html" class="active">О компании</a>
+      <a href="catalog.html">Услуги и вакансии</a>
+      <a href="price.html">Прайс-лист</a>
+    </nav>
+    <a href="about.html#contacts" class="btn btn-primary header-cta">Оставить заявку</a>
+  </header>
+
+  <section class="page-head">
+    <div class="container">
+      <h1>О компании</h1>
+      <p class="lead">«Орбита» — кадровое агентство полного цикла. Мы работаем с 2014 года и помогаем бизнесу находить сотрудников, а специалистам — работу, в которой хочется остаться.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <p class="about-text">Наша команда — это 25 рекрутеров, каждый из которых специализируется на своём направлении: продажи, финансы, IT, логистика, производство. Мы знаем рынок изнутри, поэтому не присылаем «всех подряд», а предлагаем только тех кандидатов, которые действительно подходят по опыту, зарплатным ожиданиям и ценностям компании.</p>
+
+    <h2>Основные показатели</h2>
+    <div class="stats">
+      <div class="stat card"><div class="stat-number">11 лет</div><div class="stat-label">на рынке подбора персонала</div></div>
+      <div class="stat card"><div class="stat-number">2 400+</div><div class="stat-label">успешных трудоустройств</div></div>
+      <div class="stat card"><div class="stat-number">18 дней</div><div class="stat-label">средний срок закрытия вакансии</div></div>
+      <div class="stat card"><div class="stat-number">350+</div><div class="stat-label">компаний-партнёров</div></div>
+    </div>
+  </section>
+
+  <section id="contacts" class="section container">
+    <h2>Контакты и карта проезда</h2>
+    <div class="contacts-inner">
+      <form class="contact-form">
+        <label for="name">Имя
+          <input type="text" id="name" placeholder="Как к вам обращаться">
+        </label>
+        <label for="contact">Телефон или email
+          <input type="text" id="contact" placeholder="Для связи с вами">
+        </label>
+        <label for="message">Сообщение
+          <textarea id="message" rows="3" placeholder="Кратко опишите задачу"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+      <div class="contact-info">
+        <div class="card">
+          <h3>Контакты</h3>
+          <p>
+            Телефон: +7 (495) 123-45-67<br>
+            Email: info@orbita-hr.ru<br>
+            Адрес: г. Москва, ул. Тверская, 10, офис 305<br>
+            Режим работы: пн–пт, 9:00–19:00
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <!-- Замените ll и pt на координаты вашего адреса (долгота,широта) -->
+      <iframe src="https://yandex.ru/map-widget/v1/?ll=37.6064%2C55.7650&z=16&pt=37.6064,55.7650,pm2rdm"
+              loading="lazy" title="Карта проезда к офису «Орбита»"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Кадровое агентство «Орбита» · info@orbita-hr.ru · Обновлено: 21.10.2026</span>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="catalog.html">Услуги и вакансии</a>
+      <a href="price.html">Прайс-лист</a>
+    </nav>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

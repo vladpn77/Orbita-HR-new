@@ -1,0 +1,141 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вакансии — Кадровое агентство «Орбита»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <circle cx="15" cy="15" r="13" stroke="#4F7965" stroke-width="2.5" />
+                    <circle cx="15" cy="15" r="4" fill="#4F7965" />
+                </svg>
+                <span>Орбита</span>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Главная</a>
+                <a href="vacancies.html" class="is-current">Вакансии</a>
+                <a href="employers.html">Работодателям</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+            <a href="contacts.html" class="btn btn-primary">Оставить заявку</a>
+        </div>
+    </header>
+
+    <section class="vacancies container">
+        <h2>Актуальные вакансии</h2>
+        <p class="vacancies-subtitle">Небольшая часть открытых позиций у наших партнёров</p>
+
+        <div class="filter-bar">
+            <button class="filter-btn is-active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="sales">Продажи</button>
+            <button class="filter-btn" data-filter="it">IT</button>
+            <button class="filter-btn" data-filter="finance">Бухгалтерия</button>
+            <button class="filter-btn" data-filter="hr">HR</button>
+            <button class="filter-btn" data-filter="logistics">Логистика</button>
+        </div>
+
+        <div class="vacancy-list">
+
+            <div class="vacancy-card card" data-category="sales">
+                <div>
+                    <h3>Менеджер по продажам B2B</h3>
+                    <p>Производственная компания · Москва · от 90 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+            <div class="vacancy-card card" data-category="finance">
+                <div>
+                    <h3>Бухгалтер на участок</h3>
+                    <p>Розничная сеть · Санкт-Петербург · от 75 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+            <div class="vacancy-card card" data-category="it">
+                <div>
+                    <h3>Frontend-разработчик</h3>
+                    <p>IT-компания · удалённо · от 150 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+            <div class="vacancy-card card" data-category="hr">
+                <div>
+                    <h3>HR-специалист</h3>
+                    <p>Логистическая компания · Казань · от 65 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+            <div class="vacancy-card card" data-category="logistics">
+                <div>
+                    <h3>Логист-оператор</h3>
+                    <p>Транспортная компания · Москва · от 70 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+            <div class="vacancy-card card" data-category="it">
+                <div>
+                    <h3>Backend-разработчик (Python)</h3>
+                    <p>IT-стартап · удалённо · от 180 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+            <div class="vacancy-card card" data-category="sales">
+                <div>
+                    <h3>Руководитель отдела продаж</h3>
+                    <p>FMCG-компания · Москва · от 140 000 ₽</p>
+                </div>
+                <a href="contacts.html" class="btn btn-outline btn-sm">Откликнуться</a>
+            </div>
+
+        </div>
+
+        <p class="vacancies-empty" id="vacanciesEmpty" hidden>По этой категории пока нет вакансий.</p>
+    </section>
+
+    <footer>
+        <span>© 2026 Кадровое агентство «Орбита»</span>
+        <nav>
+            <a href="vacancies.html">Вакансии</a>
+            <a href="employers.html">Работодателям</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </footer>
+
+    <script>
+    (function () {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.vacancy-card');
+      const empty = document.getElementById('vacanciesEmpty');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const filter = btn.dataset.filter;
+          buttons.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+
+          let visible = 0;
+          cards.forEach(function (card) {
+            const show = (filter === 'all' || card.dataset.category === filter);
+            card.hidden = !show;
+            if (show) visible++;
+          });
+
+          if (empty) empty.hidden = visible !== 0;
+        });
+      });
+    })();
+    </script>
+
+</body>
+</html>

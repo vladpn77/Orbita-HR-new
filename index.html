@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Кадровое агентство «Орбита»: подбор персонала для бизнеса и поиск работы для кандидатов.">
+<title>Главная — Кадровое агентство «Орбита»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Manrope:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#4F7965" stroke-width="2.5"/>
+        <circle cx="15" cy="15" r="4" fill="#4F7965"/>
+      </svg>
+      <span>Орбита</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="catalog.html">Услуги и вакансии</a>
+      <a href="price.html">Прайс-лист</a>
+    </nav>
+    <a href="about.html#contacts" class="btn btn-primary header-cta">Оставить заявку</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="pill">Кадровое агентство с 2014 года</span>
+        <h1>Находим людей, которые остаются надолго</h1>
+        <p>Помогаем компаниям закрывать вакансии нужными специалистами, а кандидатам — находить работу по профилю. Без спама резюме и без лишних звонков.</p>
+        <div class="hero-actions">
+          <a href="catalog.html" class="btn btn-primary">Смотреть вакансии</a>
+          <a href="about.html#contacts" class="btn btn-outline">Нужен сотрудник</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="190" cy="190" r="170" stroke="#4F7965" stroke-opacity="0.25" stroke-width="2"/>
+        <circle cx="190" cy="190" r="118" stroke="#4F7965" stroke-opacity="0.45" stroke-width="2"/>
+        <circle cx="190" cy="190" r="66" fill="#EAE5D8" stroke="#4F7965" stroke-width="2.5"/>
+        <circle cx="190" cy="190" r="22" fill="#4F7965"/>
+        <circle cx="310" cy="106" r="14" fill="#1C2B2A"/>
+        <circle cx="86" cy="262" r="11" fill="#4F7965"/>
+        <circle cx="262" cy="326" r="9" fill="#B08A1E"/>
+      </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="home-stats container">
+    <div class="stats">
+      <div class="stat card"><div class="stat-number">11 лет</div><div class="stat-label">на рынке подбора персонала</div></div>
+      <div class="stat card"><div class="stat-number">2 400+</div><div class="stat-label">успешных трудоустройств</div></div>
+      <div class="stat card"><div class="stat-number">18 дней</div><div class="stat-label">средний срок закрытия вакансии</div></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="container">
+      <h2>Как мы работаем</h2>
+      <div class="process-steps">
+        <div class="step"><div class="step-number">01</div><h3>Заявка</h3><p>Уточняем требования к должности, условия и сроки закрытия вакансии.</p></div>
+        <div class="step"><div class="step-number">02</div><h3>Поиск</h3><p>Ищем кандидатов в своей базе и на открытом рынке, проводим первичный отбор.</p></div>
+        <div class="step"><div class="step-number">03</div><h3>Собеседования</h3><p>Организуем встречи с подходящими кандидатами, помогаем с обратной связью.</p></div>
+        <div class="step"><div class="step-number">04</div><h3>Выход на работу</h3><p>Сопровождаем оформление и даём гарантию замены кандидата.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPLOYERS / CANDIDATES -->
+  <section id="employers" class="split">
+    <div class="container split-inner">
+      <div class="split-col">
+        <h2>Работодателям</h2>
+        <ul>
+          <li>Закрываем вакансии любой сложности: от линейного персонала до руководителей</li>
+          <li>Даём гарантию бесплатной замены кандидата в течение 3 месяцев</li>
+          <li>Оплата только за результат — после выхода кандидата на работу</li>
+        </ul>
+        <a href="price.html" class="btn btn-light">Посмотреть прайс-лист</a>
+      </div>
+      <div class="split-col">
+        <h2>Соискателям</h2>
+        <ul>
+          <li>Подбираем вакансии под ваш опыт и зарплатные ожидания</li>
+          <li>Подготовим к собеседованию и расскажем об условиях заранее</li>
+          <li>Не передаём резюме работодателю без вашего согласия</li>
+        </ul>
+        <a href="catalog.html" class="btn btn-outline-light">Смотреть вакансии</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Кадровое агентство «Орбита» · info@orbita-hr.ru · Обновлено: 21.10.2026</span>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="catalog.html">Услуги и вакансии</a>
+      <a href="price.html">Прайс-лист</a>
+    </nav>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

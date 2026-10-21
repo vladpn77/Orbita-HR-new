@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Кадровое агентство «Орбита»: подбор персонала для бизнеса и поиск работы для кандидатов.">
+<title>Прайс-лист — Кадровое агентство «Орбита»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Manrope:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#4F7965" stroke-width="2.5"/>
+        <circle cx="15" cy="15" r="4" fill="#4F7965"/>
+      </svg>
+      <span>Орбита</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="catalog.html">Услуги и вакансии</a>
+      <a href="price.html" class="active">Прайс-лист</a>
+    </nav>
+    <a href="about.html#contacts" class="btn btn-primary header-cta">Оставить заявку</a>
+  </header>
+
+  <section class="page-head">
+    <div class="container">
+      <h1>Прайс-лист</h1>
+      <p class="lead">Стоимость услуг указана за одну закрытую вакансию. Оплата — только после выхода кандидата на работу.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+
+    <div class="price-wrap">
+      <table class="price">
+        <thead>
+          <tr><th>Услуга</th><th>Что входит</th><th>Срок</th><th>Гарантия замены</th><th>Стоимость</th></tr>
+        </thead>
+        <tbody>
+          <tr class="group"><td colspan="5">Подбор персонала</td></tr>
+          <tr><td data-label="Услуга">Линейный персонал</td><td data-label="Что входит">Поиск, отбор, 1 собеседование</td><td data-label="Срок">7–10 дней</td><td data-label="Гарантия замены">1 месяц</td><td data-label="Стоимость" class="p-low">от 15 000 ₽</td></tr>
+          <tr><td data-label="Услуга">Специалисты</td><td data-label="Что входит">Поиск, тестирование, 2–3 собеседования</td><td data-label="Срок">14–21 день</td><td data-label="Гарантия замены">3 месяца</td><td data-label="Стоимость" class="p-mid">от 30 000 ₽</td></tr>
+          <tr><td data-label="Услуга">Руководители</td><td data-label="Что входит">Executive search, оценка компетенций</td><td data-label="Срок">30–45 дней</td><td data-label="Гарантия замены">6 месяцев</td><td data-label="Стоимость" class="p-high">от 60 000 ₽</td></tr>
+          <tr class="group"><td colspan="5">Дополнительные услуги</td></tr>
+          <tr><td data-label="Услуга">Оценка кандидатов</td><td data-label="Что входит">Тесты и структурированное интервью</td><td data-label="Срок">3 дня</td><td data-label="Гарантия замены">—</td><td data-label="Стоимость" class="p-low">5 000 ₽</td></tr>
+          <tr><td data-label="Услуга">Проверка рекомендаций</td><td data-label="Что входит">Звонки по предыдущим местам работы</td><td data-label="Срок">2 дня</td><td data-label="Гарантия замены">—</td><td data-label="Стоимость" class="p-low">3 000 ₽</td></tr>
+          <tr><td data-label="Услуга">Аутсорсинг рекрутинга</td><td data-label="Что входит">Выделенный рекрутер в вашей команде</td><td data-label="Срок">от 1 месяца</td><td data-label="Гарантия замены">—</td><td data-label="Стоимость" class="p-mid">от 80 000 ₽/мес</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-legend">Цвет ячейки стоимости: зелёный — до 15 000 ₽, жёлтый — средний уровень, красный — премиальные услуги.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Кадровое агентство «Орбита» · info@orbita-hr.ru · Обновлено: 21.10.2026</span>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="catalog.html">Услуги и вакансии</a>
+      <a href="price.html">Прайс-лист</a>
+    </nav>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
