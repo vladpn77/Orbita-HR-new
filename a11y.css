@@ -1,0 +1,220 @@
+/* ==========================================================
+   Версия для слабовидящих
+   Панель настроек + режимы (классы на <html>, ставит js/a11y.js):
+   a11y-fs-1 / a11y-fs-2     — размер текста
+   a11y-c-bw / wb / blue     — цветовые схемы
+   a11y-sp                   — увеличенные интервалы
+   a11y-font                 — шрифт Arial
+   a11y-noimg                — изображения скрыты
+   ========================================================== */
+
+@media screen {
+
+/* ---------- Кнопка в шапке ---------- */
+
+.a11y-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px;
+  background: transparent;
+  border: 1.5px solid #1C2B2A;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1C2B2A;
+  cursor: pointer;
+}
+.a11y-toggle svg { width: 20px; height: 20px; flex: none; }
+.a11y-toggle:hover,
+.a11y-toggle[aria-expanded="true"] { background: #1C2B2A; color: #F7F4EE; }
+.a11y-toggle.is-active::after {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #B08A1E;
+}
+
+@media (max-width: 1100px) {
+  .a11y-toggle { width: 44px; padding: 0; border-radius: 10px; }
+  .a11y-toggle .label { display: none; }
+  .a11y-toggle.is-active::after { display: none; }
+  .a11y-toggle.is-active { box-shadow: inset 0 0 0 2px #B08A1E; }
+}
+
+/* ---------- Панель настроек ---------- */
+
+.a11y-panel { background: #1C2B2A; color: #F7F4EE; }
+
+.a11y-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.a11y-group { display: flex; flex-direction: column; gap: 8px; }
+.a11y-label { font-size: 13px; font-weight: 700; color: #D8D2C2; }
+.a11y-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.a11y-btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 2px solid #F7F4EE;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #F7F4EE;
+  cursor: pointer;
+}
+.a11y-btn:hover { background: rgba(247, 244, 238, 0.14); }
+.a11y-btn[aria-pressed="true"] { background: #F7F4EE; color: #1C2B2A; }
+
+.a11y-btn.a11y-sw-bw,   .a11y-btn.a11y-sw-bw:hover   { background: #FFFFFF; color: #000000; }
+.a11y-btn.a11y-sw-wb,   .a11y-btn.a11y-sw-wb:hover   { background: #000000; color: #FFFFFF; }
+.a11y-btn.a11y-sw-blue, .a11y-btn.a11y-sw-blue:hover { background: #9DD1FF; color: #063462; }
+.a11y-btn.a11y-sw[aria-pressed="true"] { outline: 4px solid #E7C34A; outline-offset: 2px; }
+
+.a11y-actions { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; margin-left: auto; }
+
+@media (max-width: 480px) {
+  .a11y-group, .a11y-actions { width: 100%; margin-left: 0; }
+  .a11y-btn { flex: 1 1 auto; }
+}
+
+/* ---------- Размер текста ---------- */
+
+html.a11y-fs-1 body { zoom: 1.2; }
+html.a11y-fs-2 body { zoom: 1.5; }
+
+/* При увеличенном тексте шапка не помещается в одну строку — используем
+   компактное меню («бургер») и на широких экранах, и убираем подпись у кнопки */
+
+html:is(.a11y-fs-1, .a11y-fs-2) header,
+html:is(.a11y-fs-1, .a11y-fs-2) footer { padding-left: 24px; padding-right: 24px; }
+
+html:is(.a11y-fs-1, .a11y-fs-2) .a11y-toggle { width: 44px; padding: 0; border-radius: 10px; }
+html:is(.a11y-fs-1, .a11y-fs-2) .a11y-toggle .label { display: none; }
+
+@media (max-width: 1400px) {
+  html:is(.a11y-fs-1, .a11y-fs-2) header { flex-wrap: nowrap; }
+  html:is(.a11y-fs-1, .a11y-fs-2) .header-cta { display: none; }
+
+  html:is(.a11y-fs-1, .a11y-fs-2) .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    line-height: 1;
+    background: transparent;
+    border: 1.5px solid #1C2B2A;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #1C2B2A;
+  }
+  html:is(.a11y-fs-1, .a11y-fs-2) .menu-toggle[aria-expanded="true"] { background: #1C2B2A; color: #F7F4EE; }
+
+  html:is(.a11y-fs-1, .a11y-fs-2) nav.main-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% - 6px);
+    right: 24px;
+    width: min(280px, calc(100% - 48px));
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 0;
+    background: #FFFFFF;
+    border: 1px solid #E7E1D3;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(28, 43, 42, 0.18);
+    z-index: 40;
+  }
+  html:is(.a11y-fs-1, .a11y-fs-2) nav.main-nav.open { display: flex; }
+  html:is(.a11y-fs-1, .a11y-fs-2) nav.main-nav a { padding: 14px 20px; border-top: 1px solid #E7E1D3; border-bottom: 0; }
+  html:is(.a11y-fs-1, .a11y-fs-2) nav.main-nav a:first-child { border-top: 0; }
+  html:is(.a11y-fs-1, .a11y-fs-2) nav.main-nav a.active { background: #EFEADC; border-bottom: 0; }
+}
+
+/* ---------- Интервалы и шрифт ---------- */
+
+html.a11y-sp body,
+html.a11y-sp body * {
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.8 !important;
+}
+
+html.a11y-font body,
+html.a11y-font body * { font-family: Arial, Helvetica, sans-serif !important; }
+
+/* ---------- Изображения ---------- */
+
+.a11y-alt { display: none; }
+html.a11y-noimg img { display: none !important; }
+html.a11y-noimg .hero-art { display: none !important; }
+html.a11y-noimg .a11y-alt {
+  display: block;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px dashed currentColor;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ---------- Цветовые схемы ---------- */
+
+html.a11y-c-bw   { --a-bg: #FFFFFF; --a-fg: #000000; }
+html.a11y-c-wb   { --a-bg: #000000; --a-fg: #FFFFFF; }
+html.a11y-c-blue { --a-bg: #9DD1FF; --a-fg: #063462; }
+
+html[class*="a11y-c-"] body,
+html[class*="a11y-c-"] body *:not(.a11y-sw) {
+  background-color: var(--a-bg) !important;
+  background-image: none !important;
+  color: var(--a-fg) !important;
+  border-color: var(--a-fg) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html[class*="a11y-c-"] a { text-decoration: underline !important; }
+
+html[class*="a11y-c-"] .btn,
+html[class*="a11y-c-"] .card,
+html[class*="a11y-c-"] .chip,
+html[class*="a11y-c-"] .a11y-btn:not(.a11y-sw),
+html[class*="a11y-c-"] .menu-toggle,
+html[class*="a11y-c-"] .a11y-toggle,
+html[class*="a11y-c-"] input,
+html[class*="a11y-c-"] select,
+html[class*="a11y-c-"] textarea {
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+
+/* Нажатые кнопки и текущий пункт меню — инверсия цветов */
+html[class*="a11y-c-"] [aria-pressed="true"]:not(.a11y-sw),
+html[class*="a11y-c-"] .menu-toggle[aria-expanded="true"],
+html[class*="a11y-c-"] .a11y-toggle[aria-expanded="true"],
+html[class*="a11y-c-"] nav.main-nav a.active {
+  background-color: var(--a-fg) !important;
+  color: var(--a-bg) !important;
+}
+
+html[class*="a11y-c-"] svg [fill]:not([fill="none"]) { fill: var(--a-fg) !important; }
+html[class*="a11y-c-"] svg [stroke] { stroke: var(--a-fg) !important; }
+html[class*="a11y-c-"] .hero-art { display: none !important; }
+html[class*="a11y-c-"] input[type="range"] { accent-color: var(--a-fg); }
+html[class*="a11y-c-"] ::placeholder { color: var(--a-fg) !important; opacity: 0.75; }
+html[class*="a11y-c-"] :focus-visible { outline: 4px solid var(--a-fg) !important; outline-offset: 3px; }
+
+}

@@ -98,6 +98,8 @@ header {
   padding: 16px 24px;
   background: #F7F4EE;
   border-bottom: 1px solid #E7E1D3;
+  position: relative;   /* от шапки позиционируется выпадающее меню на телефоне */
+  z-index: 30;
 }
 
 .logo { display: flex; align-items: center; gap: 10px; }
@@ -109,7 +111,10 @@ nav.main-nav a { padding: 6px 0; border-bottom: 2px solid transparent; }
 nav.main-nav a:hover { text-decoration: none; border-bottom-color: #4F7965; }
 nav.main-nav a.active { color: #4F7965; border-bottom-color: #4F7965; }
 
+.header-actions { display: flex; align-items: center; gap: 12px; }
+
 .menu-toggle { display: none; }
+
 
 /* ---------- Главная: hero ---------- */
 
@@ -325,18 +330,23 @@ footer nav a:hover { color: #4F7965; }
   }
 }
 
-/* ---------- Планшеты и телефоны ---------- */
+/* ---------- Промежуточная ширина: чуть плотнее шапка ---------- */
 
-@media (max-width: 860px) {
-  .hero-art { display: none; }
-  .hero h1 { font-size: 40px; }
+@media (min-width: 901px) and (max-width: 1100px) {
+  nav.main-nav { gap: 22px; }
 }
 
-@media (max-width: 768px) {
-  header { padding: 12px 20px; }
+/* ---------- Меню на телефоне и планшете: выпадающая панель под кнопкой ---------- */
+
+@media (max-width: 900px) {
+  header { padding: 12px 20px; flex-wrap: nowrap; }
+
+  .header-cta { display: none; }
 
   .menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 44px;
     height: 44px;
     font-size: 24px;
@@ -347,20 +357,44 @@ footer nav a:hover { color: #4F7965; }
     cursor: pointer;
     color: #1C2B2A;
   }
+  .menu-toggle[aria-expanded="true"] { background: #1C2B2A; color: #F7F4EE; }
 
-  .header-cta { display: none; }
-
+  /* Панель меню: прижата к правому краю, сразу под кнопкой, поверх контента */
   nav.main-nav {
     display: none;
-    order: 3;
-    width: 100%;
+    position: absolute;
+    top: calc(100% - 6px);
+    right: 20px;
+    width: min(280px, calc(100% - 40px));
     flex-direction: column;
     gap: 0;
+    padding: 6px 0;
+    background: #FFFFFF;
+    border: 1px solid #E7E1D3;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(28, 43, 42, 0.18);
+    z-index: 40;
   }
   nav.main-nav.open { display: flex; }
-  nav.main-nav a { padding: 14px 0; border-top: 1px solid #E7E1D3; border-bottom: 0; }
-  nav.main-nav a.active { border-bottom: 0; }
 
+  nav.main-nav a {
+    padding: 14px 20px;
+    border-top: 1px solid #E7E1D3;
+    border-bottom: 0;
+  }
+  nav.main-nav a:first-child { border-top: 0; }
+  nav.main-nav a:hover { background: #F7F4EE; }
+  nav.main-nav a.active { background: #EFEADC; border-bottom: 0; }
+}
+
+/* ---------- Планшеты и телефоны ---------- */
+
+@media (max-width: 860px) {
+  .hero-art { display: none; }
+  .hero h1 { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
   .container { padding-left: 20px; padding-right: 20px; }
   footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
 
@@ -439,4 +473,138 @@ footer nav a:hover { color: #4F7965; }
 
   .price .group td:first-child { display: block; background: transparent; text-align: left; }
   .price .group td::before { content: none; }
+}
+
+/* ==========================================================
+   Общие дополнения
+   ========================================================== */
+
+/* hidden должен скрывать даже элементы с display: flex */
+[hidden] { display: none !important; }
+
+/* Заметная рамка фокуса для навигации с клавиатуры */
+:focus-visible { outline: 3px solid #B08A1E; outline-offset: 2px; }
+
+/* Кнопка, оформленная как ссылка (например, «Версия для печати» в подвале) */
+.link-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: #4B5A58;
+  cursor: pointer;
+}
+.link-btn:hover { color: #4F7965; text-decoration: underline; }
+
+/* Строка с адресом и датой — видна только при печати */
+.print-meta { display: none; }
+
+/* ==========================================================
+   Умные фильтры (вакансии и прайс-лист)
+   ========================================================== */
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0 0 24px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #E7E1D3;
+  border-radius: 16px;
+}
+
+.filters-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 16px; }
+
+.f-field { display: flex; flex-direction: column; gap: 6px; flex: 1 1 180px; min-width: 0; }
+.f-field.f-wide { flex: 2 1 280px; }
+
+.f-label { font-size: 13px; font-weight: 700; color: #4B5A58; }
+
+.f-field input[type="search"],
+.f-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #D8D2C2;
+  border-radius: 10px;
+  background: #FFFFFF;
+  font: inherit;
+  font-size: 15px;
+  color: #1C2B2A;
+}
+
+.f-field input[type="range"] { width: 100%; min-height: 44px; accent-color: #4F7965; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1.5px solid #D8D2C2;
+  border-radius: 999px;
+  background: #FFFFFF;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C2B2A;
+  cursor: pointer;
+}
+.chip:hover { border-color: #4F7965; }
+.chip[aria-pressed="true"] { background: #1C2B2A; border-color: #1C2B2A; color: #F7F4EE; }
+.chip:disabled { opacity: 0.45; cursor: not-allowed; }
+.chip .count { margin-left: 4px; font-weight: 500; opacity: 0.75; }
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.check input { width: 20px; height: 20px; accent-color: #4F7965; }
+
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 14px;
+  border-top: 1px solid #E7E1D3;
+}
+
+.filters-count { font-size: 14px; color: #4B5A58; }
+.filters-count strong { color: #1C2B2A; }
+
+.f-reset {
+  padding: 8px 2px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4F7965;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.f-reset:disabled { color: #8A9694; text-decoration: none; cursor: default; }
+
+.f-empty {
+  margin: 0;
+  padding: 32px 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #4B5A58;
+  background: #FFFFFF;
+  border: 1px dashed #D8D2C2;
+  border-radius: 16px;
+}
+.f-empty .f-reset { display: block; margin: 10px auto 0; }
+
+@media (max-width: 480px) {
+  .filters { padding: 16px; }
+  .f-field, .f-field.f-wide { flex-basis: 100%; }
 }

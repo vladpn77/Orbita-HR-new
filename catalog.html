@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Manrope:wght@400;500;700;800&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="a11y.css">
+<link rel="stylesheet" href="print.css" media="print">
+<script>try{var a=JSON.parse(localStorage.getItem('orbita-a11y')||'{}'),c=document.documentElement.classList;if(+a.fs)c.add('a11y-fs-'+a.fs);if(a.color)c.add('a11y-c-'+a.color);if(+a.sp)c.add('a11y-sp');if(+a.font)c.add('a11y-font');if(a.img===0)c.add('a11y-noimg')}catch(e){}</script>
 </head>
 <body>
 
@@ -21,14 +24,16 @@
       </svg>
       <span>Орбита</span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav" aria-label="Основное меню">
       <a href="index.html">Главная</a>
       <a href="about.html">О компании</a>
       <a href="catalog.html" class="active">Услуги и вакансии</a>
       <a href="price.html">Прайс-лист</a>
     </nav>
-    <a href="about.html#contacts" class="btn btn-primary header-cta">Оставить заявку</a>
+    <div class="header-actions">
+      <a href="about.html#contacts" class="btn btn-primary header-cta">Оставить заявку</a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    </div>
   </header>
 
   <section class="page-head">
@@ -81,21 +86,34 @@
   <section id="vacancies" class="section container">
     <h2>Актуальные вакансии</h2>
     <p class="vacancies-subtitle">Небольшая часть открытых позиций у наших партнёров</p>
-    <div class="vacancy-list">
-      <div class="vacancy-card card">
+    <div class="filters" id="vacancy-filters"></div>
+    <div class="vacancy-list" id="vacancy-list">
+      <div class="vacancy-card card" data-category="sales" data-city="Москва" data-remote="0" data-salary="90000">
         <div><h3>Менеджер по продажам B2B</h3><p>Производственная компания · Москва · от 90 000 ₽</p></div>
         <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
       </div>
-      <div class="vacancy-card card">
+      <div class="vacancy-card card" data-category="finance" data-city="Санкт-Петербург" data-remote="0" data-salary="75000">
         <div><h3>Бухгалтер на участок</h3><p>Розничная сеть · Санкт-Петербург · от 75 000 ₽</p></div>
         <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
       </div>
-      <div class="vacancy-card card">
+      <div class="vacancy-card card" data-category="it" data-city="" data-remote="1" data-salary="150000">
         <div><h3>Frontend-разработчик</h3><p>IT-компания · удалённо · от 150 000 ₽</p></div>
         <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
       </div>
-      <div class="vacancy-card card">
+      <div class="vacancy-card card" data-category="hr" data-city="Казань" data-remote="0" data-salary="65000">
         <div><h3>HR-специалист</h3><p>Логистическая компания · Казань · от 65 000 ₽</p></div>
+        <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
+      </div>
+      <div class="vacancy-card card" data-category="logistics" data-city="Москва" data-remote="0" data-salary="70000">
+        <div><h3>Логист-оператор</h3><p>Транспортная компания · Москва · от 70 000 ₽</p></div>
+        <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
+      </div>
+      <div class="vacancy-card card" data-category="it" data-city="" data-remote="1" data-salary="180000">
+        <div><h3>Backend-разработчик (Python)</h3><p>IT-стартап · удалённо · от 180 000 ₽</p></div>
+        <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
+      </div>
+      <div class="vacancy-card card" data-category="sales" data-city="Москва" data-remote="0" data-salary="140000">
+        <div><h3>Руководитель отдела продаж</h3><p>FMCG-компания · Москва · от 140 000 ₽</p></div>
         <a href="about.html#contacts" class="btn btn-outline btn-sm">Откликнуться</a>
       </div>
     </div>
@@ -109,9 +127,12 @@
       <a href="about.html">О компании</a>
       <a href="catalog.html">Услуги и вакансии</a>
       <a href="price.html">Прайс-лист</a>
+      <button type="button" class="link-btn" data-print>Версия для печати</button>
     </nav>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/a11y.js"></script>
+  <script src="js/filters.js"></script>
 </body>
 </html>

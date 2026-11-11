@@ -1,0 +1,119 @@
+/* ==========================================================
+   Версия для печати (подключается с media="print")
+   Убирает меню, кнопки, карту, формы и фильтры, оставляя
+   чистый чёрно-белый текст, который экономит тонер.
+   ========================================================== */
+
+@page { size: A4; margin: 16mm 14mm; }
+
+html, body {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  font-size: 11pt;
+  line-height: 1.5;
+  zoom: 1 !important;
+}
+
+/* Всё лишнее для бумаги */
+.header-actions, nav.main-nav, .menu-toggle, .a11y-toggle, .a11y-panel,
+.hero-art, .hero-actions, .map-wrap, .contact-form, .filters, .f-empty,
+.btn, footer nav, .service img, .a11y-alt {
+  display: none !important;
+}
+
+.container { max-width: none; padding-left: 0; padding-right: 0; }
+
+/* Шапка: логотип и контакты */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 8pt;
+  margin-bottom: 14pt;
+  background: none;
+  border-bottom: 2px solid #000;
+}
+header::after {
+  content: "info@orbita-hr.ru · +7 (495) 123-45-67";
+  align-self: center;
+  font-size: 9pt;
+  color: #333;
+}
+.logo span { font-size: 16pt; }
+
+/* Заголовки */
+h1, h2, h3 { color: #000 !important; break-after: avoid; }
+h1 { font-size: 22pt; }
+h2 { font-size: 16pt; margin-bottom: 8pt; }
+h3 { font-size: 12pt; }
+
+/* Блоки без цветных фонов */
+.hero { padding: 0 0 12pt; }
+.hero h1 { margin-top: 8pt; }
+.hero p, .lead, .stat-label, .step p, .about-text, .service p,
+.vacancy-card p, .contact-info p, .price-legend, footer, footer span {
+  color: #222 !important;
+}
+.pill { background: none; border: 1px solid #000; color: #000; }
+
+.page-head, .process, .split, .home-stats, .section {
+  background: none !important;
+  color: #000 !important;
+  padding: 0 0 12pt;
+  margin: 0;
+  border: 0;
+}
+.page-head { border-bottom: 1px solid #000; margin-bottom: 12pt; }
+.split-col h2, .split-col ul { color: #000 !important; }
+.stat-number, .step-number { color: #000; }
+
+.card, .vacancy-card, .stat {
+  background: #FFF !important;
+  border: 1px solid #888 !important;
+  box-shadow: none !important;
+}
+
+section, .card, .step, .vacancy-card, .stat, tr, li { break-inside: avoid; }
+
+.vacancy-list { gap: 8pt; }
+.vacancy-card { padding: 8pt 12pt; }
+
+/* Ссылки: без цвета, адрес в скобках для внешних */
+a { color: #000 !important; text-decoration: none !important; }
+a[href^="http"]::after {
+  content: " (" attr(href) ")";
+  font-size: 9pt;
+  color: #444;
+  word-break: break-all;
+}
+
+/* Таблица прайса — всегда в виде настоящей таблицы */
+.price-wrap { border: 1px solid #000; overflow: visible; }
+.price { display: table !important; width: 100%; font-size: 10pt; background: #fff; }
+.price thead { display: table-header-group !important; }
+.price tbody { display: table-row-group !important; }
+.price tr { display: table-row !important; margin: 0; border: 0; border-radius: 0; }
+.price th, .price td { display: table-cell !important; text-align: left !important; padding: 6pt 8pt; border: 1px solid #888; }
+.price td::before { content: none !important; }
+.price th, .price .group td, .p-low, .p-mid, .p-high {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.price th { background: #DDD !important; color: #000 !important; }
+.price .group td { background: #EEE !important; font-family: inherit; font-size: 10pt; }
+
+/* Адрес страницы и дата печати (строку создаёт js/main.js) */
+.print-meta {
+  display: block !important;
+  margin: 12pt 0 0;
+  padding-top: 6pt;
+  border-top: 1px solid #888;
+  font-size: 9pt;
+  color: #444;
+}
+
+footer {
+  display: block;
+  padding: 8pt 0 0;
+  border-top: 1px solid #000;
+  font-size: 9pt;
+}
